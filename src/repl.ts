@@ -9,6 +9,7 @@ export function cleanInput(input: string): string[] {
         .trim()
         .toLowerCase()
         .split(" ")
+        .filter(word => word !== "");
         
 }
 

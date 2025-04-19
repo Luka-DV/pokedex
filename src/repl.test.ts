@@ -12,7 +12,7 @@ describe.each([
         expected: ["one", "two", "three"]
     },
     {
-        input: " four five six seven ",
+        input: " four Five   six seven ",
         expected: ["four", "five", "six", "seven"]
     }
  
