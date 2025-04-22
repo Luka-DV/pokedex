@@ -1,4 +1,3 @@
-import { rawListeners } from "node:process"
 
 import { createInterface } from 'node:readline';
 import { stdin, stdout } from 'node:process';
@@ -9,20 +8,17 @@ export function cleanInput(input: string): string[] {
         .trim()
         .toLowerCase()
         .split(" ")
-        .filter(word => word !== "");
+        .filter(word => word !== "")
         
 }
 
-
-const rl = createInterface({
-  input: stdin,
-  output: stdout,
-  prompt: "Pokedex > "
-});
-
-
-
 export function startREPL() {
+
+    const rl = createInterface({
+        input: stdin,
+        output: stdout,
+        prompt: "Pokedex > "
+    });
 
     rl.prompt()
 
@@ -32,7 +28,7 @@ export function startREPL() {
             rl.prompt();
             return
         }
-        console.log(`Your command was: ${input[0]}`);
+        //console.log(`Your command was: ${input[0]}`);
         rl.prompt();
-});
+    });
 }
