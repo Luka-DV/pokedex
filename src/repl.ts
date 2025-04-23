@@ -1,6 +1,7 @@
 
 import { createInterface } from 'node:readline';
 import { stdin, stdout } from 'node:process';
+import { getCommands } from './registryOfCommands.js';
 
 
 export function cleanInput(input: string): string[] {
@@ -29,6 +30,22 @@ export function startREPL() {
             return
         }
         //console.log(`Your command was: ${input[0]}`);
+
+        const commands = getCommands();
+        const commandName = input[0];
+
+        try {
+            if(commandName in commands) {
+                commands[commandName].callback(commands)
+            } else {
+                console.log("Unknown command");
+            }        
+        } catch (error) {
+            console.log(`An error occured: ${error}`)
+        }
+
+
+
         rl.prompt();
     });
 }
