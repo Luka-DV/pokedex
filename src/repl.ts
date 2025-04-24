@@ -38,7 +38,7 @@ export function startREPL() {
             if(commandName in commands) {
                 commands[commandName].callback(commands)
             } else {
-                console.log("Unknown command");
+                console.log(`Unknown command: "${commandName}". Type "help" for a list of commands.`);
             }        
         } catch (error) {
             console.log(`An error occured: ${error}`)
